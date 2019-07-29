@@ -1,0 +1,16 @@
+v-container(fluid)
+  h2(v-html="procedure.title")
+  h3 Revision {{ procedure.revision }}
+  h3 Written by: {{ procedure.author }}  Approved by: {{ procedure.approval }}
+  v-sheet(elevation="6")
+    h5 Purpose & Scope
+    div(v-html="procedure.scope")
+  v-sheet(elevation="6" color="error" dark)
+    h5 Restrictions
+    div(v-html="procedure.restrictions")
+  v-sheet(elevation="6")
+    h5 Instructions
+    div(v-html="procedure.content")
+  v-sheet(elevation="6")
+    h5 References
+    div(v-html="procedure.references")
