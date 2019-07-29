@@ -1,0 +1,11 @@
+//- Fixed toolbar at top of screen
+v-app-bar(
+  color="deep-purple accent-4"
+  dark
+)
+  //- Toggles sliding in/out of navigation drawer
+  v-app-bar-nav-icon(
+    @click.stop="toggleDrawer"
+  )
+  //- Application name
+  v-toolbar-title Cygnus OPS
