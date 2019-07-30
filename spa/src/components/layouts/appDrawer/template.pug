@@ -5,14 +5,18 @@ v-navigation-drawer(
   v-model = "position"
 )
 
-  v-list
-    //- List of pages
-    v-list-tile(
+  v-list(shaped)
+
+    v-list-item(
+      v-for="route in routes"
       :key="route.name"
       :to="route.path"
-      v-for="route in routes"
     )
-      v-list-tile-action
+      v-list-item-action
         v-icon {{ route.icon }}
-      v-list-tile-content
-        v-list-tile-title {{ route.name }}
+        v-list-item-text {{ route.name }}
+          
+
+
+
+    

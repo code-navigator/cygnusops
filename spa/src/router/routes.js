@@ -6,13 +6,13 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
-    icon: 'folder'
+    icon: 'mdi-folder'
   },
   {
     path: '/about',
     name: 'about',
     component: About,
-    icon: 'folder'
+    icon: 'mdi-folder'
   }
 ]
 
