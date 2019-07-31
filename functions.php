@@ -49,3 +49,84 @@ function cygnusops_enqueue_scripts() {
   wp_enqueue_style('style');
 }
 add_action( 'wp_enqueue_scripts', 'cygnusops_enqueue_scripts');
+
+/**
+ * Add menu support
+ */
+function cygnusops_init() {
+  register_nav_menus(
+    array(
+      'primary-menu' => __( 'Header Menu')
+    )
+  );
+}
+add_action( 'init', 'cygnusops_init');
+
+/**
+ * Get Wordpress Menu meta data including custom fields
+ */
+function cygnusops_get_nav_menu() {
+  global $wpdb;
+  $arr = array();
+  $write = false;
+  
+  $results = $wpdb->get_results(
+    "SELECT * " .
+    "FROM wp_posts " .
+    "INNER JOIN wp_postmeta " .
+      "ON wp_posts.id = wp_postmeta.post_id " .
+    "WHERE post_type = 'nav_menu_item' " .
+      "AND post_status = 'publish' " .
+      "AND meta_key IN ('name', 'icon', 'path', '_menu_item_menu_item_parent')"
+  );
+
+  foreach($results as $result) {
+
+    $id = $result->ID;
+
+    switch($result->meta_key) {
+      case '_menu_item_menu_item_parent':
+        $parent = $result->meta_value;
+        break;
+      case 'name':
+        $name = $result->meta_value;
+        break;
+      case 'icon':
+        $icon = $result->meta_value;
+        break;
+      case 'path':
+        $path = $result->meta_value;
+        $write = true;
+        break;
+    }
+
+    if($write) {
+      $tempArray = array(
+        'id' => $id,
+        'parent' => $parent,
+        'name' => $name,
+        'icon' => $icon,
+        'path' => $path
+      );
+
+      array_push($arr, $tempArray);
+      
+      $parent = '';
+      $name = '';
+      $icon = '';
+      $path = '';
+      $write = false; 
+    }
+  }
+    return $arr;
+  }
+
+/**
+ * Endpoint for retrieving menu info
+ */
+add_action( 'rest_api_init', function() {
+  register_rest_route('wp/v2', 'menu', array(
+    'methods' => 'GET',
+    'callback' => 'cygnusops_get_nav_menu'
+  ));
+});
