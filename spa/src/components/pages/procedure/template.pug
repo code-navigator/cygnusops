@@ -1,7 +1,10 @@
 v-container
   v-layout(row)
     v-flex(xs6)
-      <v-treeview :items="items"></v-treeview>
+      v-treeview(
+        :items="items"
+        dense
+      )
     v-flex(xs6)
       v-card
         v-card-title This is a dummy title

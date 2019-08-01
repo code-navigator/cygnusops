@@ -102,8 +102,8 @@ function cygnusops_get_nav_menu() {
 
     if($write) {
       $tempArray = array(
-        'id' => $id,
-        'parent' => $parent,
+        'id' => (int)$id,
+        'parent' => (int)$parent,
         'name' => $name,
         'icon' => $icon,
         'path' => $path
@@ -118,7 +118,7 @@ function cygnusops_get_nav_menu() {
       $write = false; 
     }
   }
-    return $arr;
+    return get_nested_children($arr, 0);
   }
 
 /**
@@ -132,51 +132,21 @@ add_action( 'rest_api_init', function() {
 });
 
 
-/*********************TEST*********************/
-
-function cygnusops_test() {
-  $flat_array = array(array(
-    'id' => 1, 
-    'parent' => 0, 
-    'name' => 'node 1', 
-    'icon' => 'folder', 
-    'path' => '/node1', 
-    'children' => array(
-      array(
-        'id' => 2, 
-        'parent' => 1, 
-        'name' => 'node 2', 
-        'icon' => 'folder', 
-        'path' => '/node2A'
-      )
-    )
-  ));
-
-  // return get_nested_children($flat_array, '0');
-  return get_nested_children($flat_array, 0);
-}
-
 function get_nested_children($flat_array, $parent) {
-  
   $nested_array = array();
 
-    for($i=0; $i<=count($flat_array); $i++) {
+    for($i=0; $i<count($flat_array); $i++) {
         
       if($flat_array[$i]['parent'] == $parent) {
             $children = get_nested_children($flat_array, $flat_array[$i]['id']);
-            
             if (count($children)) {
                 $flat_array[$i]['children'] = $children;
             }
+
             array_push($nested_array, $flat_array[$i]);
         }
     }
   return $nested_array;
 }
 
-add_action( 'rest_api_init', function() {
-  register_rest_route('wp/v2', 'test', array(
-    'methods' => 'GET',
-    'callback' => 'cygnusops_test'
-  ));
-});
+

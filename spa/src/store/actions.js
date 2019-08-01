@@ -21,9 +21,8 @@ export default {
     )
   },
   // Retrieve data for current procedure
-  async getTest () {
-    const data = await api.get('wp-json/wp/v2/test')
-
-    console.log(data);
+  async getTest ({ commit }) {
+    const data = await api.get('wp-json/wp/v2/menu')
+    commit('setMenu', data)
   }
 }

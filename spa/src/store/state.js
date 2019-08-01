@@ -1,4 +1,5 @@
 export default {
   // Current procedure object
-  procedure: {}
+  procedure: {},
+  menu: []
 }
