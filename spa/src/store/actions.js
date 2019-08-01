@@ -19,5 +19,11 @@ export default {
         references: data.acf.references
       })
     )
+  },
+  // Retrieve data for current procedure
+  async getTest () {
+    const data = await api.get('wp-json/wp/v2/test')
+
+    console.log(data);
   }
 }
