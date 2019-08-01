@@ -1,5 +1,6 @@
 import Home from '@Pages/home/index.vue'
 import About from '@Pages/about/index.vue'
+import Procedure from '@Pages/procedure/index.vue'
 
 const routes = [
   {
@@ -12,6 +13,12 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About,
+    icon: 'mdi-folder'
+  },
+  {
+    path: '/procedure',
+    name: 'procedure',
+    component: Procedure,
     icon: 'mdi-folder'
   }
 ]
