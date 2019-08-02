@@ -2,24 +2,27 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
   data: () => ({
+    // Nested structure for treeview
     items: []
   }),
 
   created: async function () {
-    await this.getTest()
-    console.log(this.menu)
-    this.items = this.menu
+    // Populate tree with procedures
+    await this.getProcedureList()
+    this.items = this.procedureList
   },
 
   computed: {
+    // Watch for change in state
     ...mapState([
-      'menu'
+      'procedureList'
     ])
   },
 
   methods: {
+    // Dispatch request to retrieve procedure list
     ...mapActions([
-      'getTest'
-    ]),
+      'getProcedureList'
+    ])
   }
 }

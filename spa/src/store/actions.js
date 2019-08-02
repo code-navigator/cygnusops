@@ -6,6 +6,7 @@ export default {
   async getProcedure ({ commit }) {
     const data = await api.get('wp-json/wp/v2/pages/152')
 
+    // Save data to state
     commit(
       'setProcedure',
       new ProcedureClass({
@@ -20,9 +21,12 @@ export default {
       })
     )
   },
-  // Retrieve data for current procedure
-  async getTest ({ commit }) {
+
+  // Retrieve list of procedures using Wordpress custom menu
+  async getProcedureList ({ commit }) {
+    // Retrieve menu structure as nested array
     const data = await api.get('wp-json/wp/v2/menu')
-    commit('setMenu', data)
+    // Save to state
+    commit('setProcedureList', data)
   }
 }

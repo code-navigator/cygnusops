@@ -1,9 +1,11 @@
 export default {
   // Save procedure object
-  setProcedure (state, proc) {
-    state.procedure = proc
+  setProcedure (state, data) {
+    state.procedure = data
   },
-  setMenu (state, data) {
-    state.menu = data
+
+  // Save procedure list as an array
+  setProcedureList (state, data) {
+    state.procedureList = data
   }
 }
