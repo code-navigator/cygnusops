@@ -16,7 +16,7 @@ export default {
     ])
   },
 
-  created: function () {
+  created() {
     this.getProcedure()
   },
 

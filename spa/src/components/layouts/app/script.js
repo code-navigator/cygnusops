@@ -26,5 +26,12 @@ export default {
     toggleDrawer () {
       this.drawer = !this.drawer;
     }
+  },
+
+  watch: {
+    // Observe for route changes and close drawer
+    $route (to, from) {
+      this.drawer = false;
+    }
   }
 };
