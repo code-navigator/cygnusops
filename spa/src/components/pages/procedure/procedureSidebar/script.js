@@ -1,14 +1,7 @@
 import { mapActions, mapState } from 'vuex'
-import procedureContent from './procedureContent'
-import procedureSidebar from './procedureSidebar'
-
 
 export default {
-  components: {
-    procedureContent,
-    procedureSidebar
-  },
-
+  name: 'procedureSidebar',
   data: () => ({
     // Nested structure for treeview
     items: []
