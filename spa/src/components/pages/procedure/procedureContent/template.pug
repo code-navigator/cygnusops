@@ -3,6 +3,9 @@ v-flex(
 )
   v-card
     v-card-title {{ procedure.title }}
+    v-card-title References
+    v-card-text(v-html="procedure.references")
+    v-card-title Instructions
     v-card-text( 
       v-html="procedure.content"
     )
