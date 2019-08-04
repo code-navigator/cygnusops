@@ -4,6 +4,7 @@
 export default class Procedure {
   constructor (data) {
     this.title = data.title.rendered
+    this.number = data.acf.procedure_number
     this.revision = data.acf.revision
     this.author = data.acf.author
     this.approval = data.acf.approval

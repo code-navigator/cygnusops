@@ -1,0 +1,13 @@
+// Render panel as flat
+.v-expansion-panel::before {
+  bottom: unset;
+}
+
+// Remove horizontal line between panels
+.v-expansion-panel:not(:first-child)::after {
+  border-top: none;
+}
+
+p.title {
+  margin-bottom: 0px;
+}
