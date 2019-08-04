@@ -2,23 +2,14 @@
  * Procedure
  */
 export default class Procedure {
-  constructor ({
-    title = '',
-    revision = '',
-    author = '',
-    approval = '',
-    scope = '',
-    restrictions = '',
-    references = '',
-    content = ''
-  } = {}) {
-    this.title = title
-    this.revision = revision
-    this.author = author
-    this.approval = approval
-    this.scope = scope
-    this.restrictions = restrictions
-    this.references = references
-    this.content = content
+  constructor (data) {
+    this.title = data.title.rendered
+    this.revision = data.acf.revision
+    this.author = data.acf.author
+    this.approval = data.acf.approval
+    this.scope = data.acf.scope
+    this.restrictions = data.acf.restrictions
+    this.references = data.acf.references
+    this.content = data.content.rendered
   }
 }

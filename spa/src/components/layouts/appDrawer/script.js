@@ -7,10 +7,10 @@ export default {
   computed: {
     position: {
       get () {
-        return this.drawer;
+        return this.drawer
       },
       set (newValue) {
       }
     }
   }
-};
+}

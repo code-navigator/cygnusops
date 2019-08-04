@@ -1,7 +1,27 @@
 v-flex(xs3 fill-height)
-  v-card
+  v-sheet(
+    class="pa-4 primary lighten-2"
+  )
+    v-text-field(
+      v-model="search"
+      clearable
+      dark
+      flat
+      hide-details
+      label="Search Procedures"
+      solo-inverted
+    )
+  v-sheet
     v-treeview(
       :items="items"
+      :search="search"
+      @update:active="updateNode"
+      activatable
       dense
+      hoverable
+      item-key="path"
+      open-all
+      open-on-click
     )
+
     

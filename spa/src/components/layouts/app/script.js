@@ -1,8 +1,8 @@
-import appHeader from '@Layouts/appHeader/index';
-import appDrawer from '@Layouts/appDrawer/index';
-import appContent from '@Layouts/appContent/index';
-import appFooter from '@Layouts/appFooter/index';
-import { routes } from '@Router/routes';
+import appHeader from '@Layouts/appHeader/index'
+import appDrawer from '@Layouts/appDrawer/index'
+import appContent from '@Layouts/appContent/index'
+import appFooter from '@Layouts/appFooter/index'
+import { routes } from '@Router/routes'
 
 export default {
   name: 'App',
@@ -24,14 +24,14 @@ export default {
   methods: {
     // Toggle drawer in and out
     toggleDrawer () {
-      this.drawer = !this.drawer;
+      this.drawer = !this.drawer
     }
   },
 
   watch: {
     // Observe for route changes and close drawer
     $route (to, from) {
-      this.drawer = false;
+      this.drawer = false
     }
   }
-};
+}

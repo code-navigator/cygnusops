@@ -1,13 +1,13 @@
 export default {
   name: 'procedureContent',
 
-  created: function () {
+  created () {
     // Retrieve procedure
     this.$store.dispatch('getProcedure')
   },
 
   computed: {
-    procedure() {
+    procedure () {
       return this.$store.state.procedure
     }
   }

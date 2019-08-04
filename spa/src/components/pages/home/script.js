@@ -7,8 +7,8 @@ export default {
     ...mapActions([
       'getTest'
     ]),
-    test() {
-      this.getTest();
+    test () {
+      this.getTest()
     }
   }
 }
