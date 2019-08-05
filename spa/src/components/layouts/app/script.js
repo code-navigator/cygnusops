@@ -5,7 +5,7 @@ import appFooter from '@Layouts/appFooter/index'
 import { routes } from '@Router/routes'
 
 export default {
-  name: 'App',
+  name: 'app',
 
   data: () => ({
     // Drawer position (false = in; true = out)
