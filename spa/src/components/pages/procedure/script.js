@@ -7,5 +7,15 @@ export default {
   components: {
     procedureContent,
     procedureSidebar
+  },
+
+  computed: {
+    // Render templates only after promises are resolved
+    isLoading () {
+      return (
+        this.$store.state.procedure.title != null &&
+        this.$store.state.procedureList != null
+      )
+    }
   }
 }
