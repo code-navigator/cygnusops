@@ -1,34 +1,15 @@
 v-flex(
   xs8
 )
-  v-card(v-show="procedure.title")
-    p.display-2.pl-6 {{ procedure.title }}
-    p.title.pl-6 {{ procedure.number }}            Revision {{ procedure.revision }}
-    p.title.pl-6 Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
-
-    v-expansion-panels
-      v-expansion-panel(v-show="procedure.scope")
-        v-expansion-panel-header.title(expand-icon="mdi-menu-down") 1.0 Purpose & Scope
-        v-expansion-panel-content
-          v-card-text( 
-            v-html="procedure.scope"
-          )
-      v-expansion-panel(v-show="procedure.restrictions")
-        v-expansion-panel-header.title(expand-icon="mdi-menu-down") 2.0 Restrictions
-        v-expansion-panel-content
-          v-card-text( 
-            v-html="procedure.restrictions"
-          )
-      v-expansion-panel(v-show="procedure.references")
-        v-expansion-panel-header.title(expand-icon="mdi-menu-down") 3.0 References
-        v-expansion-panel-content
-          v-card-text( 
-            v-html="procedure.references"
-          )
-      v-expansion-panel(v-show="procedure.content")
-        v-expansion-panel-header.title(expand-icon="mdi-menu-down") 4.0 Instructions
-        v-expansion-panel-content
-          v-card-text( 
-            v-html="procedure.content"
-          )
+  //- Procedure
+  v-card(
+    v-show="procedure.title"
+  )
+    //- Header
+    p.display-1.pl-6 {{ procedure.title }}
+    p.subtitle.pl-6 {{ procedure.number }} Revision {{ procedure.revision }} ({{ procedure.date }})
+    p.subtitle.pl-6 Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
+    
+    //- Sections
+    expandedSection(:sections="sections")
 

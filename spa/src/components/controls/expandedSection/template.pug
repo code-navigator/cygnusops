@@ -1,0 +1,16 @@
+v-expansion-panels
+  //- Loop through all sections, creating an expansion panel for each one
+  v-expansion-panel(
+    v-for="(section, i) in sections"
+    v-show="section.content"
+    :key="i"
+  )
+    //- Title is always visible
+    v-expansion-panel-header.title(
+      v-html = "section.title"
+    )
+    //- Content is collapsible
+    v-expansion-panel-content
+      v-card-text( 
+        v-html="section.content"
+      )
