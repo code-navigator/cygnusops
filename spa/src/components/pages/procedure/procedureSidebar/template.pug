@@ -1,15 +1,14 @@
 v-flex(xs3 fill-height)
-  v-sheet(
-    class="pa-4 primary lighten-2"
-  )
+  v-sheet
     v-text-field(
       v-model="search"
+      class="mb-3"
       clearable
       dark
       flat
       hide-details
-      label="Search Procedures"
-      solo-inverted
+      placeholder="Search Procedures"
+      solo
     )
   v-sheet
     v-treeview(
@@ -22,6 +21,7 @@ v-flex(xs3 fill-height)
       item-key="path"
       open-all
       open-on-click
+      selection-type="leaf"
     )
 
     

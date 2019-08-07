@@ -1,3 +1,20 @@
 v-content(id="nav")
+  //- Page tabs
+  v-tabs(
+    hide-slider
+  )
+    v-tab(
+      :to="{name:'home'}"
+      dark
+    ) item
+    v-tab(
+      :to="{name: 'about'}"
+      dark
+    ) about
+    v-tab(
+      :to="{name: 'procedure', params: {slug: '-'}}"
+      dark
+    ) search
+
   //- Inject pages here
   router-view
