@@ -9,7 +9,10 @@ export default {
 
   created () {
     // Retrieve procedure
-    this.$store.dispatch('getProcedure')
+    this.$store.dispatch(
+      'getProcedure',
+      this.$route.params.slug
+    )
   },
 
   computed: {
