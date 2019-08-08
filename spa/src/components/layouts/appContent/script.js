@@ -1,3 +1,9 @@
 export default {
-  name: 'appContent'
+  name: 'appContent',
+
+  computed: {
+    tabs () {
+      return this.$store.state.mainTabs
+    }
+  }
 }

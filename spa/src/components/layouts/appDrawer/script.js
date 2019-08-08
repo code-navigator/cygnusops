@@ -14,5 +14,11 @@ export default {
       set (newValue) {
       }
     }
+  },
+
+  methods: {
+    addTab (tabName) {
+      this.$store.commit('addMainTab', { name: tabName })
+    }
   }
 }

@@ -3,5 +3,8 @@ export default {
   procedure: {},
 
   // List of procedures
-  procedureList: []
+  procedureList: [],
+
+  // Main tab array
+  mainTabs: []
 }

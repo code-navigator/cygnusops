@@ -2,19 +2,23 @@ v-content(id="nav")
   //- Page tabs
   v-tabs(
     hide-slider
+    show-arrows
   )
     v-tab(
-      :to="{name:'home'}"
+      v-for="(tab, i) in tabs"
+      :to="{name: tab.name}"
+      :key="i"
       dark
-    ) item
-    v-tab(
-      :to="{name: 'about'}"
-      dark
-    ) about
-    v-tab(
-      :to="{name: 'procedure', params: {slug: '-'}}"
-      dark
-    ) search
+    ) {{ tab.name }}
+
+      v-spacer
+        div
+          v-btn(v-if="tabs.length > 1"
+            small 
+            icon 
+            @click.stop="removeTabByIndex(idx)"
+          )
+            v-icon(small) mdi-close
 
   //- Inject pages here
   router-view
