@@ -5,5 +5,11 @@ export default {
     tabs () {
       return this.$store.state.mainTabs
     }
+  },
+
+  methods: {
+    closeTab (index) {
+      this.$store.commit('closeMainTab', index)
+    }
   }
 }

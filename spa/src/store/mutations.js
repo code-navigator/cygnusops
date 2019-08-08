@@ -10,7 +10,13 @@ export default {
   },
 
   // Add tab to main array
-  addMainTab (state, data) {
+  openMainTab (state, data) {
     state.mainTabs.push(data)
+  },
+
+  // Remove tab from main array
+  closeMainTab (state, data) {
+    console.log(state.mainTabs)
+    state.mainTabs.splice(data, 1)
   }
 }

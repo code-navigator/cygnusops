@@ -16,9 +16,11 @@ v-content(id="nav")
           v-btn(v-if="tabs.length > 1"
             small 
             icon 
-            @click.stop="removeTabByIndex(idx)"
+            @click.native="closeTab(i)"
           )
-            v-icon(small) mdi-close
+            v-icon(
+              small
+            ) mdi-close-circle
 
   //- Inject pages here
   router-view
