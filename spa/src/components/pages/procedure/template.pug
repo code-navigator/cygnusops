@@ -1,10 +1,16 @@
 v-container(
   fluid
 )
-  v-layout.mt-5(
+  v-layout.mt-n2(
     row
     justify-space-around
     v-show="isLoading"
   )
-    procedureSidebar
-    procedureContent  
+    Split(
+      style="height: 1000px;"
+      :gutterSize="5"
+    )
+      SplitArea.mt-4(:size="25")
+        procedureSidebar
+      SplitArea.mt-4(:size="75")
+        procedureContent
