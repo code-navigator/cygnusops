@@ -1,3 +1,7 @@
-.v-treeview--dense .v-treeview-node__root {
-  min-height: 20px;
+// Compress treeview line height
+.v-treeview{
+  &--dense 
+  &-node__root {
+    min-height: 20px;
+  }
 }

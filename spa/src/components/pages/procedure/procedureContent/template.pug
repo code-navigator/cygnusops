@@ -5,9 +5,9 @@ v-flex(class="align-center")
     class="mx-10"
   )
     //- Header
-    p.display-1.pl-6 {{ procedure.title }}
-    p.subtitle.pl-6 {{ procedure.number }} Revision {{ procedure.revision }} ({{ procedure.date }})
-    p.subtitle.pl-6 Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
+    p.display-1.pt-5 {{ procedure.title }}
+    p.subtitle {{ procedure.number }} Revision {{ procedure.revision }} ({{ procedure.date }})
+    p.subtitle Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
     
     //- Sections
     expandedSection(:sections="sections")

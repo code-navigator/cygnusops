@@ -25,18 +25,22 @@ export default {
       return [
         {
           title: '1.0 Purpose & Scope',
+          class: 'scope',
           content: this.procedure.scope
         },
         {
           title: '2.0 Restrictions',
+          class: 'restrictions',
           content: this.procedure.restrictions
         },
         {
           title: '3.0 References',
+          class: 'references',
           content: this.procedure.references
         },
         {
           title: '4.0 Procedure',
+          class: 'procedure',
           content: this.procedure.content
         }
       ]
