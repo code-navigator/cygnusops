@@ -1,16 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import actions from './actions'
-import getters from './getters'
-import mutations from './mutations'
-import state from './state'
+import procedure from './procedure/index'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  namespaced: true,
-  actions,
-  getters,
-  mutations,
-  state
+  // Store is divided into modules
+  // Each page has its own store
+  modules: {
+    procedure: procedure
+  }
 })
