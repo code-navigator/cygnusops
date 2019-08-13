@@ -7,8 +7,11 @@ v-flex(class="align-center")
     //- Header
     p.display-1.pt-5 {{ procedure.title }}
     p.subtitle {{ procedure.number }} Revision {{ procedure.revision }} ({{ procedure.date }})
-    p.subtitle Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
+      v-spacer
+      span.subtitle Written by: {{ procedure.author }} / Approved by: {{ procedure.approval }}
     
+    v-divider
+
     //- Sections
     expandedSection(:sections="sections")
 

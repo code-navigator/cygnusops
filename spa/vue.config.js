@@ -9,6 +9,7 @@ module.exports = {
     resolve: {
       alias: {
         '@Api': path.resolve(__dirname, 'src/api'),
+        '@Assets': path.resolve(__dirname, 'src/assets'),
         '@Models': path.resolve(__dirname, 'src/models'),
         '@Controls': path.resolve(__dirname, 'src/components/controls'),
         '@Layouts': path.resolve(__dirname, 'src/components/layouts'),
