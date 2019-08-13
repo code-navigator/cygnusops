@@ -10,7 +10,7 @@ export default {
   created () {
     // Retrieve procedure
     this.$store.dispatch(
-      'getProcedure',
+      'procedure/getProcedure',
       this.$route.params.slug
     )
   },
@@ -18,7 +18,7 @@ export default {
   computed: {
     // Procedure data
     procedure () {
-      return this.$store.state.procedure
+      return this.$store.state.procedure.procedure
     },
     // Data to pass as a prop
     sections () {
