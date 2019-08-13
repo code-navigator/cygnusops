@@ -8,33 +8,42 @@
   border-top: none;
 }
 
-// Numbering of ordered list
-.procedure ol {
-  list-style-type: none;
+// Numbering of outermost level
+// Procedure
+.procedure>ol {
   counter-reset: item 3;
   padding: 0;
 }
 
-// Numbering of ordered list
+
+// Numbering of inner levels
+// Scope
 .scope ol {
-  list-style-type: none;
-  counter-reset: item;
+  counter-reset: item 0;
   padding: 0;
 }
 
-// Numbering of ordered list
+// Restrictions
 .restrictions ol {
-  list-style-type: none;
   counter-reset: item 1;
   padding: 0;
 }
 
-// Numbering of ordered list
+// References
 .references ol {
-  list-style-type: none;
   counter-reset: item 2;
   padding: 0;
 }
+
+// Procedure
+.scope>ol ol,
+.restrictions>ol ol,
+.references>ol ol,
+.procedure>ol ol {
+  counter-reset: item;
+  padding: 0;
+}
+
 
 ol > li {
   display: table;
@@ -86,6 +95,7 @@ li ol > li:before {
 .restrictions {
   visibility: hidden;
 }
+
 ol{
   visibility: visible;
 }
@@ -103,7 +113,10 @@ div.v-card__text {
   padding-top: 0;
 }
 
-.v-application ul, .v-application .procedure ol {
+.v-application .scope ol,
+.v-application .restrictions ol,
+.v-application .references ol,
+.v-application .procedure ol {
   padding-left: 0;
 }
 
@@ -111,6 +124,6 @@ div.v-card__text {
   padding: 0;
 }
 
-.v-expansion-panel div.v-card__text {
-  padding-top: 0;
-}
+// .v-expansion-panel div.v-card__text {
+//   padding-top: 0;
+// }
