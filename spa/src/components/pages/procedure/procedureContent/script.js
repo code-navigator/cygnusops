@@ -1,4 +1,4 @@
-import expandedSection from '@Controls/expandedSection/index.vue'
+import expandedSection from './expandedSection/index.vue'
 
 export default {
   name: 'procedureContent',
