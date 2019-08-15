@@ -26,22 +26,22 @@ export default {
         {
           title: '1.0 Purpose & Scope',
           class: 'scope',
-          content: this.procedure.scope
+          content: this.procedure.getScope()
         },
         {
           title: '2.0 Restrictions',
           class: 'restrictions',
-          content: this.procedure.restrictions
+          content: this.procedure.getRestrictions()
         },
         {
           title: '3.0 References',
           class: 'references',
-          content: this.procedure.references
+          content: this.procedure.getReferences()
         },
         {
           title: '4.0 Procedure',
           class: 'procedure',
-          content: this.procedure.content
+          content: this.procedure.getContent()
         }
       ]
     }

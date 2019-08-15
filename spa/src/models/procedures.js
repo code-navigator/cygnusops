@@ -23,4 +23,26 @@ export default class Procedure {
 
     return month + '/' + day + '/' + year
   }
+
+  wrapSection (markup, className) {
+    return `<section class = ${className}>
+      ${markup}
+    </section>`
+  }
+
+  getScope () {
+    return this.wrapSection(this.scope, 'scope')
+  }
+
+  getRestrictions () {
+    return this.wrapSection(this.restrictions, 'restrictions')
+  }
+
+  getReferences () {
+    return this.wrapSection(this.references, 'references')
+  }
+
+  getContent () {
+    return this.wrapSection(this.content, 'procedure')
+  }
 }
