@@ -4,11 +4,19 @@ import api from '@Api/api'
 export default {
   // Retrieve data for current procedure
   async getProcedure ({ commit }, slug = 'search-page') {
+    commit(
+      'setIsLoading',
+      true
+    )
     const data = await api.get('wp-json/wp/v2/pages?slug=' + slug)
     // Save data to state
-    commit(
+    await commit(
       'setProcedure',
       new ProcedureClass(data[0])
+    )
+    await commit(
+      'setIsLoading',
+      false
     )
   },
 

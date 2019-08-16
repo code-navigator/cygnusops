@@ -22,28 +22,28 @@ export default {
     },
     // Data to pass as a prop
     sections () {
-      return [
-        {
-          title: '1.0 Purpose & Scope',
-          class: 'scope',
-          content: this.procedure.getScope()
-        },
-        {
-          title: '2.0 Restrictions',
-          class: 'restrictions',
-          content: this.procedure.getRestrictions()
-        },
-        {
-          title: '3.0 References',
-          class: 'references',
-          content: this.procedure.getReferences()
-        },
-        {
-          title: '4.0 Procedure',
-          class: 'procedure',
-          content: this.procedure.getContent()
-        }
-      ]
+      if (this.$store.state.procedure.isLoading) {
+        return []
+      } else {
+        return [
+          {
+            title: '1.0 Purpose & Scope',
+            content: this.procedure.getScope()
+          },
+          {
+            title: '2.0 Restrictions',
+            content: this.procedure.getRestrictions()
+          },
+          {
+            title: '3.0 References',
+            content: this.procedure.getReferences()
+          },
+          {
+            title: '4.0 Procedure',
+            content: this.procedure.getContent()
+          }
+        ]
+      }
     }
   }
 }

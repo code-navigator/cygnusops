@@ -6,5 +6,7 @@ export default {
   procedureList: [],
 
   // Main tab array
-  mainTabs: []
+  mainTabs: [],
+
+  isLoading: false
 }

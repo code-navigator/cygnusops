@@ -17,5 +17,9 @@ export default {
   // Remove tab from main array
   closeMainTab (state, data) {
     state.mainTabs.splice(data, 1)
+  },
+
+  setIsLoading (state, data) {
+    state.isLoading = data
   }
 }
