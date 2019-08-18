@@ -20,7 +20,7 @@ export default {
   methods: {
     updateNode (node) {
       if (node[0] != null) {
-        this.$router.push(node[0])
+        this.$router.push('/procedures/' + node[0])
         this.$store.dispatch('procedure/getProcedure', node[0])
       }
     }
