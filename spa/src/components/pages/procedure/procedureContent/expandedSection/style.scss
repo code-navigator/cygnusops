@@ -1,6 +1,7 @@
 // Render panel as flat
 .v-expansion-panel::before {
   bottom: unset;
+  box-shadow: none;
 }
 
 // Remove horizontal line between panels
@@ -124,6 +125,6 @@ div.v-card__text {
   padding: 0;
 }
 
-// .v-expansion-panel div.v-card__text {
-//   padding-top: 0;
-// }
+.v-expansion-panel div.v-card__text {
+  padding-top: 0;
+}

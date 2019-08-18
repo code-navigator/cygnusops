@@ -2,6 +2,7 @@ export default {
   // Save procedure object
   setProcedure (state, data) {
     state.procedure = data
+    console.log(data)
   },
 
   // Save procedure list as an array
