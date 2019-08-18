@@ -25,8 +25,15 @@ export default class Procedure {
   }
 
   wrapSection (markup, className) {
+    // Wrap content in class identifying section
+    // Add sacrificial outer ol>li wrapper to start numbering at x.1
+    // instead of x.0
     return `<section class = ${className}>
-      ${markup}
+      <ol>
+        <li>
+          ${markup}
+        </li>
+      </ol>
     </section>`
   }
 

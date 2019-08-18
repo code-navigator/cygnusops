@@ -1,12 +1,17 @@
 // Render panel as flat
-.v-expansion-panel::before {
+.v-expansion-panels .v-expansion-panel::before {
   bottom: unset;
-  box-shadow: none;
 }
 
 // Remove horizontal line between panels
-.v-expansion-panel:not(:first-child)::after {
+.v-expansion-panels .v-expansion-panel:not(:first-child)::after {
   border-top: none;
+}
+
+// Align ordered list with heading
+.v-expansion-panel-content 
+.v-expansion-panel-content__wrap {
+  padding: 0;
 }
 
 // Numbering of outermost level
@@ -16,8 +21,6 @@
   padding: 0;
 }
 
-
-// Numbering of inner levels
 // Scope
 .scope ol {
   counter-reset: item 0;
@@ -45,7 +48,7 @@
   padding: 0;
 }
 
-
+// Numbering of inner levels
 ol > li {
   display: table;
   counter-increment: item;
@@ -76,29 +79,8 @@ li ol > li {
   margin: 0;
 }
 
-li {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
 li ol > li:before {
   content: counters(item, ".") " ";
-}
-
-// ol > li:first-child{
-//   visibility: hidden;
-//   display: inline;
-// }
-
-.procedure,
-.scope,
-.references,
-.restrictions {
-  visibility: hidden;
-}
-
-ol{
-  visibility: visible;
 }
 
 div.v-card__text {
@@ -121,10 +103,3 @@ div.v-card__text {
   padding-left: 0;
 }
 
-.v-expansion-panel-content__wrap {
-  padding: 0;
-}
-
-.v-expansion-panel div.v-card__text {
-  padding-top: 0;
-}
