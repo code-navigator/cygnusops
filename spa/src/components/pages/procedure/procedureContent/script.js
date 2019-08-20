@@ -7,7 +7,7 @@ export default {
     expandedSection
   },
 
-  mounted: function() {
+  mounted () {
     this.getData()
   },
 
