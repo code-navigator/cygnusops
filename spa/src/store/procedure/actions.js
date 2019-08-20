@@ -1,9 +1,12 @@
 import ProcedureClass from '@Models/procedures'
 import api from '@Api/api'
+import router from '@Router/router'
 
 export default {
   // Retrieve data for current procedure
-  async getProcedure ({ commit }, slug = 'blank') {
+  async getProcedure ({ commit }) {
+    const slug = router.currentRoute.params.slug
+
     commit(
       'setIsLoading',
       true

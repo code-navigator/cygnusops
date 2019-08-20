@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/procedures/:slug?',
     url: '/procedures',
-    name: 'procedure',
+    name: 'procedures',
     component: Procedure,
     icon: 'mdi-folder'
   }

@@ -7,12 +7,24 @@ export default {
     expandedSection
   },
 
-  created () {
-    // Retrieve procedure
-    this.$store.dispatch(
-      'procedure/getProcedure',
-      this.$route.params.slug
-    )
+  mounted: function() {
+    this.getData()
+  },
+
+  watch: {
+    '$route' (to, from) {
+      this.getData()
+    }
+  },
+
+  methods: {
+    // Retrieve data for current procedure
+    getData () {
+      // Retrieve procedure
+      this.$store.dispatch(
+        'procedure/getProcedure'
+      )
+    }
   },
 
   computed: {
