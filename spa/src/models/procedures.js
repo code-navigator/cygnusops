@@ -24,17 +24,22 @@ export default class Procedure {
     return month + '/' + day + '/' + year
   }
 
+  replaceAll (searchString, searchFor, replaceWith) {
+    return searchString.replace(new RegExp(searchFor, 'gi'), replaceWith)
+  }
+
   wrapSection (markup, className) {
     // Wrap content in class identifying section
     // Add sacrificial outer ol>li wrapper to start numbering at x.1
     // instead of x.0
     return `
-      <ol>
-        <li>
-          <router-link to="/procedures/procedure-101">CLICK</router-link>
-        </li>
-      </ol>
-    `
+      <section class="${className}">
+        <ol>
+          <li>
+            ${markup}
+          </li>
+        </ol>
+      </section>`
   }
 
   getScope () {
@@ -50,6 +55,11 @@ export default class Procedure {
   }
 
   getContent () {
-    return this.wrapSection(this.content, 'procedure')
+    var text = this.replaceAll(this.content, '<a', '<router-link')
+    text = this.replaceAll(text, '</a>', '</router-link')
+    text = this.replaceAll(text, 'href', 'to')
+    text = this.replaceAll(text, 'http://dev.local', '')
+
+    return this.wrapSection(text, 'procedure')
   }
 }

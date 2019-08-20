@@ -18,4 +18,5 @@ v-expansion-panels(
       //-   v-html="section.content"
       //- )
       //- router-link(to="/procedures/procedure-102") Click
-      templateCompiler(content="<router-link to='/procedures/procedure-102'>CLICK</router-link>")
+      templateCompiler(:content="section.content")
+      //- templateCompiler(content="section.content")
