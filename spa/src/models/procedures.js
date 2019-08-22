@@ -24,14 +24,30 @@ export default class Procedure {
     return month + '/' + day + '/' + year
   }
 
-  replaceAll (searchString, searchFor, replaceWith) {
-    return searchString.replace(new RegExp(searchFor, 'gi'), replaceWith)
+  formatSection (text, sectionName) {
+    text = this.replaceLinks(text)
+    text = this.wrapSection(text, sectionName)
+    return text
   }
 
+  // Replace anchor tags with router-link components to stop page from reloading
+  // Original tag: <a href="http://dev.local/procedures/<section type>"></a>
+  // New tag: <router-link to="/procedures/<section type"></router-link>
+  replaceLinks (text) {
+    text = this.replaceAll(text, '<a href="http://dev.local', '<router-link to="')
+    text = this.replaceAll(text, '</a>', '</router-link')
+    return text
+  }
+
+  // General method to replace string that matches regex
+  replaceAll (searchString, searchFor, replaceWith) {
+    return searchString.replace(new RegExp(searchFor, 'g'), replaceWith)
+  }
+
+  // Wrap content in class identifying section
+  // Add sacrificial outer ol>li wrapper to start numbering at x.1
+  // instead of x.
   wrapSection (markup, className) {
-    // Wrap content in class identifying section
-    // Add sacrificial outer ol>li wrapper to start numbering at x.1
-    // instead of x.0
     return `
       <section class="${className}">
         <ol>
@@ -43,23 +59,18 @@ export default class Procedure {
   }
 
   getScope () {
-    return this.wrapSection(this.scope, 'scope')
+    return this.formatSection(this.scope, 'scope')
   }
 
   getRestrictions () {
-    return this.wrapSection(this.restrictions, 'restrictions')
+    return this.formatSection(this.restrictions, 'restrictions')
   }
 
   getReferences () {
-    return this.wrapSection(this.references, 'references')
+    return this.formatSection(this.references, 'references')
   }
 
   getContent () {
-    var text = this.replaceAll(this.content, '<a', '<router-link')
-    text = this.replaceAll(text, '</a>', '</router-link')
-    text = this.replaceAll(text, 'href', 'to')
-    text = this.replaceAll(text, 'http://dev.local', '')
-
-    return this.wrapSection(text, 'procedure')
+    return this.formatSection(this.content, 'procedure')
   }
 }
