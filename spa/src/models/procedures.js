@@ -35,14 +35,16 @@ export default class Procedure {
   // New tag: <router-link to="/procedures/<section type"></router-link>
   replaceLinks (text) {
     text = this.replaceAll(text, '<a href="http://dev.local', '<router-link to="')
-    text = this.replaceAll(text, '<a x:link:href="http://dev.local', '<router-link to="')
-    text = this.replaceAll(text, '</a>', '</router-link')
+    text = this.replaceAll(text, '<a xlink:href', '<router-link to')
+    text = this.replaceAll(text, '</a>', '</router-link>')
     return text
   }
 
   // General method to replace string that matches regex
   replaceAll (searchString, searchFor, replaceWith) {
-    return searchString.replace(new RegExp(searchFor, 'g'), replaceWith)
+    if (searchString) {
+      return searchString.replace(new RegExp(searchFor, 'g'), replaceWith)
+    }
   }
 
   // Wrap content in class identifying section
