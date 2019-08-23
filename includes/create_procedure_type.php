@@ -11,6 +11,7 @@ function create_procedure_type() {
 
   // Options
   $args = array(
+    'taxonomies'  => array( 'category' ),
     'has_archive' => false,
     'hierarchical' => true,
     'labels' => $labels,
