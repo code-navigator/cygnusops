@@ -8,5 +8,6 @@ export default {
   // Main tab array
   mainTabs: [],
 
-  isLoading: false
+  // Indicates if procedure is loaded
+  isLoading: true
 }
