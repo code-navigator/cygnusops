@@ -34,7 +34,8 @@ export default class Procedure {
   // Original tag: <a href="http://dev.local/procedures/<section type>"></a>
   // New tag: <router-link to="/procedures/<section type"></router-link>
   replaceLinks (text) {
-    text = this.replaceAll(text, '<a href="http://dev.local', '<router-link to="')
+    text = this.replaceAll(text, '<a href', '<router-link to')
+    text = this.replaceAll(text, 'http://dev.local', '')
     text = this.replaceAll(text, '<a xlink:href', '<router-link to')
     text = this.replaceAll(text, '</a>', '</router-link>')
     return text
