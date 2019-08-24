@@ -9,6 +9,14 @@ function create_procedure_type() {
     'singular' => ('Procedure')
   );
 
+  $supports = array(
+    'title',
+    'thumbnail',
+    'editor',
+    'page-attributes',
+    'excerpt'
+  );
+
   // Options
   $args = array(
     'taxonomies'  => array( 'category' ),
@@ -20,6 +28,7 @@ function create_procedure_type() {
     'rest_base' => 'procedures',
     'rewrite' => array( 'slug' => 'procedures'),
     'show_in_rest' => true,
+    'supports' => $supports,
   );
 
   // Register type
