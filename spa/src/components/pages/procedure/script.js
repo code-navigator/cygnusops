@@ -1,12 +1,12 @@
-import procedureContent from './procedureContent'
-import procedureSidebar from './procedureSidebar'
+import contents from './content'
+import sidebar from './sidebar'
 
 export default {
   name: 'procedure',
 
   components: {
-    procedureContent,
-    procedureSidebar
+    contents,
+    sidebar
   },
 
   computed: {

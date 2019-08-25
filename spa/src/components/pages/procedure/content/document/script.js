@@ -1,7 +1,7 @@
 import expandedSection from './expandedSection/index.vue'
 
 export default {
-  name: 'procedureContent',
+  name: 'document',
 
   components: {
     expandedSection
