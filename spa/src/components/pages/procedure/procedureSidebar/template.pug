@@ -1,44 +1,7 @@
 v-flex(class="mx-10")
   v-expansion-panels
-    v-expansion-panel
-      v-expansion-panel-header
-        strong Search Procedures
-      v-expansion-panel-content
-        v-text-field(
-          v-model="search"
-          class="mb-3"
-          clearable
-          dark
-          flat
-          hide-details
-          placeholder="Search Procedure Text"
-          solo
-        )
-    v-expansion-panel
-      v-expansion-panel-header
-        strong Search Directory
-      v-expansion-panel-content
-        v-text-field(
-          v-model="search"
-          class="mb-3"
-          clearable
-          dark
-          flat
-          hide-details
-          placeholder="Search Procedure Directory"
-          solo
-        )
-        v-treeview(
-          :items="items"
-          :search="search"
-          @update:active="updateNode"
-          activatable
-          dense
-          hoverable
-          item-key="path"
-          open-all
-          open-on-click
-          selection-type="leaf"
-        )
+    search
+    directory
+    category
 
     

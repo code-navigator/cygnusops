@@ -9,5 +9,8 @@ export default {
   mainTabs: [],
 
   // Indicates if procedure is loaded
-  isLoading: true
+  isLoading: true,
+
+  // List of categories
+  categoryList: []
 }

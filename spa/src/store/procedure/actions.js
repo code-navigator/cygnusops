@@ -29,5 +29,13 @@ export default {
     const data = await api.get('wp-json/wp/v2/menu')
     // Save to state
     commit('setProcedureList', data)
+  },
+
+  // Retrieve list of categories
+  async getCategoryList ({ commit }) {
+    // Retrieve menu structure as nested array
+    const data = await api.get('wp-json/wp/v2/categories')
+    // Save to state
+    commit('setCategoryList', data)
   }
 }

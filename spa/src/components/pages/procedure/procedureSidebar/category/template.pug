@@ -1,0 +1,14 @@
+v-expansion-panel
+  v-expansion-panel-header
+    strong Search by Category
+  v-expansion-panel-content
+    v-radio-group.flex-center(
+      column
+      v-model="radios"
+    )
+      v-radio(
+        v-for="(category, i) in categories"
+        :key="i"
+        :label="category.name"
+        :value="category.slug"
+      )
