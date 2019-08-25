@@ -10,7 +10,8 @@ add_action( 'rest_api_init', function() {
     'methods' => 'GET',
     'callback' => 'cygnusops_get_nav_menu'
   ));
-  register_rest_route('wp/v2', 'cat/(?P<slug>[a-z]+)', array(
+  // Retrieve procedures matching a category
+  register_rest_route('wp/v2', '/cat/(?P<slug>[a-z]+)', array(
     'methods' => 'GET',
     'callback' => 'get_procedures_matching_category'
   ));
