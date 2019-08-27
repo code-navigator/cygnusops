@@ -25,5 +25,9 @@ export default {
 
   setCategoryList (state, data) {
     state.categoryList = data
+  },
+
+  setSearchResults (state, data) {
+    state.searchResults = data
   }
 }

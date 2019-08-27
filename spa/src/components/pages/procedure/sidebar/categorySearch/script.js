@@ -2,12 +2,21 @@ export default {
   name: 'category',
 
   data: () => ({
-    radios: null
+    radios: 'bid'
   }),
 
   mounted () {
     // Populate tree with procedures
     this.$store.dispatch('procedure/getCategoryList')
+  },
+
+  watch: {
+    'radios' (val, oldVal) {
+      this.$store.dispatch(
+        'procedure/searchByCategory',
+        val
+      )
+    }
   },
 
   computed: {

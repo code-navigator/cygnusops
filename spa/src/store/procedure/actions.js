@@ -37,5 +37,14 @@ export default {
     const data = await api.get('wp-json/wp/v2/categories')
     // Save to state
     commit('setCategoryList', data)
+  },
+
+  // Retrieve an array of procedures matching a specific category
+  async searchByCategory ({commit}, slug) {
+    // Look up category id by slug
+    var data = await api.get('wp-json/wp/v2/categories?slug=' + slug)
+    // Retrieve matching posts by category id
+    data = await api.get('wp-json/wp/v2/procedures?categories=' + data[0].id)
+    commit('setSearchResults', data)
   }
 }

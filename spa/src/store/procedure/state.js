@@ -12,5 +12,8 @@ export default {
   isLoading: true,
 
   // List of categories
-  categoryList: []
+  categoryList: [],
+
+  // Result set for current search
+  searchResults: []
 }
