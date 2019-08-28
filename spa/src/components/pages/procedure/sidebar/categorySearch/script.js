@@ -23,6 +23,9 @@ export default {
     // Watch for change in state
     categories () {
       return this.$store.state.procedure.categoryList
+    },
+    searchResults() {
+      return this.$store.state.procedure.searchResults
     }
   }
 }

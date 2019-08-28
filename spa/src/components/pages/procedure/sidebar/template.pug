@@ -1,7 +1,17 @@
-v-flex(class="mx-10")
-  v-expansion-panels
-    termSearch
-    categorySearch
-    directorySearch
+v-flex(class="mx-5" style="height: 100%")
+  Split(
+    :gutterSize="5"
+    direction="vertical"
+    style="height: 100%;"
+  )
+    SplitArea
+      v-flex
+        v-expansion-panels
+          termSearch
+          categorySearch
+          directorySearch
+    SplitArea
+      v-flex
+        p.ml-5 Search Results
 
     
