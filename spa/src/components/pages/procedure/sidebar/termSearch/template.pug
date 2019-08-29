@@ -2,8 +2,8 @@ v-expansion-panel
   v-expansion-panel-header
     strong Search for Term
   v-expansion-panel-content
-    v-text-field(
-      v-model="search"
+    v-text-field.mx-5(
+      v-model="term"
       class="mb-3"
       clearable
       dark
@@ -12,3 +12,11 @@ v-expansion-panel
       placeholder="Search Procedure Text"
       solo
     )
+    v-divider
+    p.subtitle-1.ml-5.pt-5
+      strong Search Results
+    div(v-for="result in searchResults.procedures")
+      div.mt-3(style="border: 1px solid lightgray;")
+          router-link(:to="result.slug")
+            p.ml-5.mb-0.subtitle-2(style="text-decoration: underline; color: navy;") {{ result.title }}
+          p.ml-2.pa-3.subtitle-2(v-html="result.excerpt")

@@ -1,4 +1,5 @@
 import ProcedureClass from '@Models/procedures'
+import SearchResultsClass from '@Models/searchResults'
 import api from '@Api/api'
 import router from '@Router/router'
 
@@ -45,6 +46,25 @@ export default {
     var data = await api.get('wp-json/wp/v2/categories?slug=' + slug)
     // Retrieve matching posts by category id
     data = await api.get('wp-json/wp/v2/procedures?categories=' + data[0].id)
-    commit('setSearchResults', data)
+    commit(
+      'setSearchResults',
+      new SearchResultsClass(data)
+    )
+  },
+
+  // Retrieve an array of procedures with specific matching term(s)
+  async searchByTerm ({commit}, term) {
+    if(term) {
+      var data = await api.get('wp-json/wp/v2/procedures?search=' + term)
+      commit(
+        'setSearchResults',
+        new SearchResultsClass(data)
+      )
+    } else {
+      commit(
+        'setSearchResults',
+        ''
+      )
+    }
   }
 }

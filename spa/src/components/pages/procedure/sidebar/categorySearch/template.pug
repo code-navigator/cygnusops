@@ -13,5 +13,10 @@ v-expansion-panel
         :value="category.slug"
       )
     v-divider
-    p.subtitle-1.ml-5.pt-5 Search Results
-    p.ml-5 {{ searchResults }}
+    p.subtitle-1.ml-5.pt-5
+      strong Search Results
+    div(v-for="result in searchResults.procedures")
+      div.mt-3(style="border: 1px solid lightgray;")
+          router-link(:to="result.slug")
+            p.ml-5.mb-0.subtitle-2(style="text-decoration: underline; color: navy;") {{ result.title }}
+          p.ml-2.pa-3.subtitle-2(v-html="result.excerpt")

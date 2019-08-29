@@ -13,6 +13,8 @@ export default class Procedure {
     this.restrictions = data.acf.restrictions
     this.references = data.acf.references
     this.content = data.content.rendered
+    this.excerpt = data.excerpt.rendered
+    this.slug = data.slug
   }
 
   convertDate (d) {
