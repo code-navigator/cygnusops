@@ -41,7 +41,7 @@ export default {
   },
 
   // Retrieve an array of procedures matching a specific category
-  async searchByCategory ({commit}, slug) {
+  async searchByCategory ({ commit }, slug) {
     // Look up category id by slug
     var data = await api.get('wp-json/wp/v2/categories?slug=' + slug)
     // Retrieve matching posts by category id
@@ -53,8 +53,8 @@ export default {
   },
 
   // Retrieve an array of procedures with specific matching term(s)
-  async searchByTerm ({commit}, term) {
-    if(term) {
+  async searchByTerm ({ commit }, term) {
+    if (term) {
       var data = await api.get('wp-json/wp/v2/procedures?search=' + term)
       commit(
         'setSearchResults',

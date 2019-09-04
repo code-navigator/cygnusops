@@ -3,6 +3,7 @@
  */
 export default class Procedure {
   constructor (data) {
+    console.log(data)
     this.title = data.title.rendered
     this.number = data.acf.number
     this.revision = data.acf.revision

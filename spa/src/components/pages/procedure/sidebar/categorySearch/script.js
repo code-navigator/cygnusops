@@ -24,7 +24,7 @@ export default {
     categories () {
       return this.$store.state.procedure.categoryList
     },
-    searchResults() {
+    searchResults () {
       return this.$store.state.procedure.searchResults
     }
   }

@@ -15,4 +15,9 @@ add_action( 'rest_api_init', function() {
     'methods' => 'GET',
     'callback' => 'get_procedures_matching_category'
   ));
+
+  register_rest_route('wp/v2', '/db', array(
+    'methods' => 'GET',
+    'callback' => 'connect_to_db'
+  ));
 });

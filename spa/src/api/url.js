@@ -1,4 +1,4 @@
-const API_URL = `http://dev.local/`
+const API_URL = `http://localhost/cygnusops/`
 
 export default class Url {
   constructor (subRoute, params) {

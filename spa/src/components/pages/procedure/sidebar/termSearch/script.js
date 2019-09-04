@@ -15,7 +15,7 @@ export default {
   },
 
   computed: {
-    searchResults() {
+    searchResults () {
       return this.$store.state.procedure.searchResults
     }
   }
