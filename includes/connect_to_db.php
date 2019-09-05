@@ -1,12 +1,31 @@
 <?php
 
 function connect_to_db () {
-  $serverName = "SQ03"; //serverName\instanceName
-  $connectionInfo = array( "Database"=>"Cygnus", "UID"=>"sa", "PWD"=>"N@4u2C0k!");
-  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+  $serverName = "DM01"; //serverName\instanceName
+  $connectionInfo = array(
+		"Database"=>"Filebound", 
+		"UID"=>"FBADMIN", 
+		"PWD"=>"filebound"
+	);
+  $conn = sqlsrv_connect(
+		$serverName,
+		$connectionInfo
+	);
+
+	$sql = "SELECT *
+		FROM files
+		INNER JOIN documents
+			ON documents.fileid = files.fileid
+		WHERE field1='AMS 2770'
+			AND dividerName='SPECIFICATION'
+		ORDER BY dateFiled DESC";
+
+	$stmt = sqlsrv_prepare( $conn, $sql );
+
+	$result = sqlsrv_execute( $stmt );
   
   if( $conn ) {
-       return "Connection established";
+       return sqlsrv_fetch_array( $stmt );
   }else{
        return "Connection could not be established";
        die( print_r( sqlsrv_errors(), true));

@@ -20,4 +20,9 @@ add_action( 'rest_api_init', function() {
     'methods' => 'GET',
     'callback' => 'connect_to_db'
   ));
+
+  register_rest_route('wp/v2', '/files', array(
+    'methods' => 'GET',
+    'callback' => 'open_file'
+  ));
 });

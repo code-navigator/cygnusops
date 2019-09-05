@@ -5,19 +5,37 @@ import router from '@Router/router'
 
 export default {
   // Retrieve data for current procedure
-  async getProcedure ({ commit }) {
-    const slug = router.currentRoute.params.slug
+  async getProcedure ({ state, commit }) {
+    var slug = router.currentRoute.params.slug
 
+    // If there is no slug ...
+    if (!slug) {
+      // But there is stored procedure, navigate to that procedure
+      if (state.procedure) {
+        router.push('/procedures/' + state.procedure.slug)
+        slug = state.procedure.slug
+        // Otherwise, go to a default page
+      } else {
+        router.push('/procedures/' + 'procedure-101')
+        slug = 'procedure-101'
+      }
+    }
+
+    // Set flag to prevent page from displaying until data is loaded
     commit(
       'setIsLoading',
       true
     )
+
+    // Retrieve procedure
     const data = await api.get('wp-json/wp/v2/procedures?slug=' + slug)
     // Save data to state
     await commit(
       'setProcedure',
       new ProcedureClass(data[0])
     )
+
+    // Clear flag to display loaded procedure
     await commit(
       'setIsLoading',
       false

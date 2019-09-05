@@ -13,6 +13,7 @@ function create_procedure_type() {
     'title',
     'thumbnail',
     'editor',
+    'revisions',
     'page-attributes',
     'excerpt'
   );
@@ -26,7 +27,10 @@ function create_procedure_type() {
     'menu_icon' => 'dashicons-media-text',
     'public' => true,
     'rest_base' => 'procedures',
-    'rewrite' => array( 'slug' => 'procedures'),
+    'rewrite' => array(
+      'slug' => 'procedures',
+      'with-front' => false
+    ),
     'show_in_rest' => true,
     'supports' => $supports,
   );

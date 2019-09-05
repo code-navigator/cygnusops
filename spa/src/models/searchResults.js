@@ -12,6 +12,5 @@ export default class SearchResults {
     data.forEach((datum) => {
       this.procedures.push(new Procedure(datum))
     })
-    console.log(this.procedures)
   }
 }
