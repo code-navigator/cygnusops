@@ -2,7 +2,7 @@
 function open_file (){
   
   // Store the file name into variable 
-  $file = 'test.pdf'; 
+  $file = 'c:/test.pdf'; 
   $filename = 'test.pdf'; 
     
   // Header content type 
@@ -12,7 +12,11 @@ function open_file (){
     
   header('Content-Transfer-Encoding: binary'); 
     
-  header('Accept-Ranges: bytes'); 
+  header('Accept-Ranges: bytes');
+  
+  header('Access-Control-Allow-Origin');
+
+  header('Access-Control-Allow-Headers: {$_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"]}');
     
   // Read the file 
   return readfile($file); 
