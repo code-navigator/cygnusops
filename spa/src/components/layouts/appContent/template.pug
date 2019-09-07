@@ -1,7 +1,7 @@
 v-content(id="nav")
   //- Page tabs
   //- Need mt-n3 to prevent overflow
-  v-tabs.mt-n3(  
+  v-tabs.mt-n3(
     hide-slider
     show-arrows
   )
@@ -9,6 +9,7 @@ v-content(id="nav")
       v-for="(tab, i) in tabs"
       :to="{name: tab.name}"
       :key="i"
+      @click.native="test(tab.name)"
       dark
     ) {{ tab.name }}
 

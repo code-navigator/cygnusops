@@ -10,6 +10,9 @@ export default {
   methods: {
     closeTab (index) {
       this.$store.commit('procedure/closeMainTab', index)
+    },
+    ClickEvent (tab) {
+      this.$store.commit('procedure/openMainTab', tab)
     }
   }
 }
