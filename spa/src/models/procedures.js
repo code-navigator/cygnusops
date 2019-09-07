@@ -33,21 +33,12 @@ export default class Procedure {
   }
 
   // Replace anchor tags with router-link components to stop page from reloading
-  // Original tag: <a href="http://dev.local/procedures/<section type>"></a>
+  // Original tag: <a href="/procedures/<section type>"></a>
   // New tag: <router-link to="/procedures/<section type"></router-link>
   replaceLinks (text) {
-    text = this.replaceAll(text, '<a href', '<router-link to')
-    text = this.replaceAll(text, 'http://dev.local', '')
-    text = this.replaceAll(text, '<a xlink:href', '<router-link to')
-    text = this.replaceAll(text, '</a>', '</router-link>')
+    text = text.replace(/(<a href)([^.]*?)(a>)/g, '<router-link to$2router-link>')
+    text = text.replace(/<a xlink:href/, '<router-link to')
     return text
-  }
-
-  // General method to replace string that matches regex
-  replaceAll (searchString, searchFor, replaceWith) {
-    if (searchString) {
-      return searchString.replace(new RegExp(searchFor, 'g'), replaceWith)
-    }
   }
 
   // Wrap content in class identifying section

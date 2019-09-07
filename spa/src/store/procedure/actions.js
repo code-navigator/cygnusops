@@ -9,9 +9,9 @@ export default {
     var slug = router.currentRoute.params.slug
 
     // If there is no slug ...
-    if (!slug) {
+    if (!slug || slug === 'undefined') {
       // But there is stored procedure, navigate to that procedure
-      if (state.procedure) {
+      if (typeof state.procedure.slug !== 'undefined') {
         router.push('/procedures/' + state.procedure.slug)
         slug = state.procedure.slug
         // Otherwise, go to a default page

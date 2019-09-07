@@ -26,6 +26,7 @@ function create_procedure_type() {
     'labels' => $labels,
     'menu_icon' => 'dashicons-media-text',
     'public' => true,
+    'publicly_queryable' => false,
     'rest_base' => 'procedures',
     'rewrite' => array(
       'slug' => 'procedures',
