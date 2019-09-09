@@ -1,6 +1,21 @@
 export default {
   name: 'appContent',
 
+  data: () => ({
+    activeTab: null
+  }),
+
+  watch: {
+    activeTab (oldTab, newTab) {
+      // if (oldTab) {
+      //   console.log(oldTab)
+      // }
+      if (newTab) {
+        console.log(newTab.replace(/\//,''))
+      }
+    }
+  },
+
   computed: {
     tabs () {
       return this.$store.state.procedure.mainTabs
@@ -10,9 +25,6 @@ export default {
   methods: {
     closeTab (index) {
       this.$store.commit('procedure/closeMainTab', index)
-    },
-    ClickEvent (tab) {
-      this.$store.commit('procedure/openMainTab', tab)
     }
   }
 }

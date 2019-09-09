@@ -18,8 +18,11 @@ export default {
         return tab.name === data
       })
     }
-    if(!found){
-      state.mainTabs.push(data)
+
+    if (!found) {
+      state.mainTabs.push(new Tab(data.name))
+    } else {
+      found.loadContent(state.procedure)
     }
   },
 

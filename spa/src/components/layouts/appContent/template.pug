@@ -4,12 +4,12 @@ v-content(id="nav")
   v-tabs.mt-n3(
     hide-slider
     show-arrows
+    v-model="activeTab"
   )
     v-tab(
       v-for="(tab, i) in tabs"
       :to="{name: tab.name}"
       :key="i"
-      @click.native="test(tab.name)"
       dark
     ) {{ tab.name }}
 
