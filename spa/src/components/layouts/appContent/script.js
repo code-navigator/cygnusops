@@ -3,17 +3,17 @@ export default {
 
   computed: {
     tabs () {
-      return this.$store.state.procedure.mainTabs
+      return this.$store.state.main.mainTabs
     }
   },
 
   methods: {
     closeTab (index) {
-      this.$store.dispatch('procedure/closeMainTab', index)
+      this.$store.dispatch('main/closeMainTab', index)
     },
 
     changeTab (index) {
-      this.$store.commit('procedure/setActiveTab', index)
+      this.$store.commit('main/setActiveTab', index)
     }
   }
 }

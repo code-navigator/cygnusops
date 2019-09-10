@@ -1,6 +1,5 @@
 import ProcedureClass from '@Models/procedures'
 import SearchResultsClass from '@Models/searchResults'
-import Tab from '@Models/tab'
 import api from '@Api/api'
 import router from '@Router/router'
 
@@ -89,33 +88,5 @@ export default {
   // Retrieve list of procedures using Wordpress custom menu
   async loadFile () {
     var data = await api.get('wp-json/wp/v2/files')
-  },
-
-  // Add main tab
-  openMainTab ({ state, commit }, data) {
-    // Add a new tab
-    commit(
-      'openMainTab',
-      new Tab(data)
-    )
-    // Update active tab
-    commit(
-      'setActiveTab',
-      state.mainTabs.length - 1
-    )
-  },
-
-  // Remove main tab
-  closeMainTab ({ commit, state }, index) {
-    // Remove tab from stack
-    commit('closeMainTab', index)
-    // Display contents of previous tab
-    index = index >= 1 ? index - 1 : 0
-    router.push(state.mainTabs[index].url)
-    // Update active tab
-    commit(
-      'setActiveTab',
-      state.mainTabs[index]
-    )
   }
 }

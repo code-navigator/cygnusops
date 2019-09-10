@@ -1,9 +1,4 @@
 export default {
-  // Set active tab
-  setActiveTab (state, index) {
-    state.activeTab = state.mainTabs[index]
-  },
-
   // Save procedure object
   setProcedure (state, data) {
     state.procedure = data
@@ -14,24 +9,17 @@ export default {
     state.procedureList = data
   },
 
-  // Add tab to main array
-  openMainTab (state, data) {
-    state.mainTabs.push(data)
-  },
-
-  // Remove tab from main array
-  closeMainTab (state, data) {
-    state.mainTabs.splice(data, 1)
-  },
-
+  // Flag to indicate when system is busy
   setIsLoading (state, data) {
     state.isLoading = data
   },
 
+  // List of categories
   setCategoryList (state, data) {
     state.categoryList = data
   },
 
+  // Results from last search operation
   setSearchResults (state, data) {
     state.searchResults = data
   }
