@@ -11,7 +11,7 @@ v-navigation-drawer(
       v-for="route in routes"
       :key="route.name"
       :to="route.url"
-      @click.native="openTab(route.name)"
+      @click.native="openTab(route.name, route.url)"
     )
       v-list-item-icon
         v-icon {{ route.icon }}

@@ -1,6 +1,9 @@
-import Tab from '../../models/tab'
-
 export default {
+  // Set active tab
+  setActiveTab (state, index) {
+    state.activeTab = state.mainTabs[index]
+  },
+
   // Save procedure object
   setProcedure (state, data) {
     state.procedure = data
@@ -13,17 +16,7 @@ export default {
 
   // Add tab to main array
   openMainTab (state, data) {
-    if (typeof state.mainTabs !== 'undefined' && data !== null) {
-      var found = state.mainTabs.find((tab) => {
-        return tab.name === data
-      })
-    }
-
-    if (!found) {
-      state.mainTabs.push(new Tab(data.name))
-    } else {
-      found.loadContent(state.procedure)
-    }
+    state.mainTabs.push(data)
   },
 
   // Remove tab from main array

@@ -4,13 +4,13 @@ v-content(id="nav")
   v-tabs.mt-n3(
     hide-slider
     show-arrows
-    v-model="activeTab"
   )
     v-tab(
       v-for="(tab, i) in tabs"
       :to="{name: tab.name}"
       :key="i"
       dark
+      @click.native="changeTab(i)"
     ) {{ tab.name }}
 
       v-spacer
@@ -18,7 +18,7 @@ v-content(id="nav")
           v-btn(v-if="tabs.length > 1"
             small 
             icon 
-            @click.native="closeTab(i)"
+            @click.prevent="closeTab(i)"
           )
             v-icon(
               small

@@ -17,8 +17,8 @@ export default {
   },
 
   methods: {
-    openTab (tabName) {
-      this.$store.commit('procedure/openMainTab', { name: tabName })
+    openTab (tabName, tabUrl) {
+      this.$store.dispatch('procedure/openMainTab', { name: tabName, url: tabUrl })
     }
   }
 }

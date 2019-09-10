@@ -1,4 +1,7 @@
 export default {
+  // Current tab index
+  activeTab: 0,
+
   // Current procedure object
   procedure: {},
 
