@@ -5,12 +5,13 @@ v-container(
   v-layout(
     row
     justify-space-around
-    v-show="isLoading"
   )
     Split(
       :gutterSize="5"
     )
+      //- Sidebar
       SplitArea(:size="25")
         sidebar
+      //- Main content
       SplitArea(:size="75")
         contents

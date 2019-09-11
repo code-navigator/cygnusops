@@ -17,8 +17,7 @@ export default {
   },
 
   // Change tabs; handler for when user clicks tab
-  changeMainTab ({ state, commit, rootState }, index ) {
-    const content = rootState.procedure.procedure
+  changeMainTab ({ state, commit, rootState }, index) {
     commit(
       'procedure/setProcedure',
       state.activeTab.contents

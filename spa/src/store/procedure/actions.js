@@ -84,9 +84,5 @@ export default {
         ''
       )
     }
-  },
-  // Retrieve list of procedures using Wordpress custom menu
-  async loadFile () {
-    var data = await api.get('wp-json/wp/v2/files')
   }
 }
