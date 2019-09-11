@@ -18,6 +18,7 @@ export default {
   },
 
   methods: {
+    // Fetch procedure for selected node
     updateNode (node) {
       if (node[0] != null) {
         this.$router.push('/procedures/' + node[0])
