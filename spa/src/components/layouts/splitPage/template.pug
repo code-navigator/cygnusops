@@ -1,0 +1,17 @@
+v-container(
+  fluid
+  fill-height
+)
+  v-layout(
+    row
+    justify-space-around
+  )
+    Split(
+      :gutterSize="5"
+    )
+      //- Sidebar
+      SplitArea(:size="25")
+        slot(name="sidebar")
+      //- Main content
+      SplitArea(:size="75")
+        slot(name="content") 
