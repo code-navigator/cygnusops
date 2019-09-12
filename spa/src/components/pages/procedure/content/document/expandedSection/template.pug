@@ -14,9 +14,4 @@ v-expansion-panels(
     )
     //- Content is collapsible
     v-expansion-panel-content
-      //- v-card-text( 
-      //-   v-html="section.content"
-      //- )
-      //- router-link(to="/procedures/procedure-102") Click
       templateCompiler(:content="section.content")
-      //- templateCompiler(content="section.content")

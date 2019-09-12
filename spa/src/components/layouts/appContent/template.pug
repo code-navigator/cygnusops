@@ -5,6 +5,7 @@ v-content(id="nav")
     hide-slider
     show-arrows
   )
+    //- Tab act as router links
     v-tab(
       v-for="(tab, i) in tabs"
       :to="{name: tab.name}"

@@ -1,22 +1,28 @@
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'search',
 
   data: () => ({
-    term: ''
+    term: ''  // Search term
   }),
 
   watch: {
+    // Watch for changes in search term
     'term' (val, oldVal) {
-      this.$store.dispatch(
-        'procedure/searchByTerm',
-        val
-      )
+      this.searchByTerm(val)
     }
   },
 
   computed: {
-    searchResults () {
-      return this.$store.state.procedure.searchResults
-    }
+    ...mapState('procedure', [
+      'searchResults'
+    ])
+  },
+
+  methods: {
+    ...mapActions('procedure', [
+      'searchByTerm'
+    ])
   }
 }

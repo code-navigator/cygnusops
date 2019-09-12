@@ -1,3 +1,4 @@
+import { mapState, mapActions } from 'vuex'
 import expandedSection from './expandedSection/index.vue'
 
 export default {
@@ -18,25 +19,29 @@ export default {
   },
 
   methods: {
+    ...mapActions('procedure', [
+      'getProcedure'
+    ]),
     // Retrieve data for current procedure
     getData () {
       // Retrieve procedure
-      this.$store.dispatch(
-        'procedure/getProcedure'
-      )
+      this.getProcedure()
     }
   },
 
   computed: {
-    // Procedure data
-    procedure () {
-      return this.$store.state.procedure.procedure
-    },
+    ...mapState('procedure', [
+      'isLoading',
+      'procedure'
+    ]),
+
     // Data to pass as a prop
     sections () {
-      if (this.$store.state.procedure.isLoading) {
+      if (this.isLoading) {
+        // If axios is busy, do not render procedure
         return []
       } else {
+        // Section markups
         return [
           {
             title: '1.0 Purpose & Scope',

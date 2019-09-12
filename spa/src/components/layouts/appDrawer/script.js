@@ -1,3 +1,5 @@
+import { mapActions } from 'vuex'
+
 export default {
   name: 'appDrawer',
 
@@ -7,6 +9,7 @@ export default {
   ],
 
   computed: {
+    // Drawer position (boolean; true=show drawer)
     position: {
       get () {
         return this.drawer
@@ -17,8 +20,18 @@ export default {
   },
 
   methods: {
+    ...mapActions('main', [
+      'openMainTab'
+    ]),
+
+    // Open a new tab
     openTab (tabName, tabUrl) {
-      this.$store.dispatch('main/openMainTab', { name: tabName, url: tabUrl })
+      this.openMainTab(
+        {
+          name: tabName,
+          url: tabUrl
+        }
+      )
     }
   }
 }

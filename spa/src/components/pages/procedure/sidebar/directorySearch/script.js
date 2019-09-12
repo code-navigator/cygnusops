@@ -1,28 +1,41 @@
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'directory',
 
   data: () => ({
+    // Search input
     search: null
   }),
 
   mounted () {
     // Populate tree with procedures
-    this.$store.dispatch('procedure/getProcedureList')
+    this.getProcedureList()
   },
 
   computed: {
-    // Watch for change in state
+    ...mapState('procedure', [
+      'procedureList'
+    ]),
+
+    // Watch for change in procedure list
     items () {
-      return this.$store.state.procedure.procedureList
+      return this.procedureList
     }
   },
 
   methods: {
+    ...mapActions('procedure', [
+      'getProcedureList',
+      'getProcedure'
+    ]),
+
     // Fetch procedure for selected node
     updateNode (node) {
       if (node[0] != null) {
+        // Navigate to corresponding procedure
         this.$router.push('/procedures/' + node[0])
-        this.$store.dispatch('procedure/getProcedure', node[0])
+        this.getProcedure(node[0])
       }
     }
   }

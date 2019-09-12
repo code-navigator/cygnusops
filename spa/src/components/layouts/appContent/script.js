@@ -1,19 +1,32 @@
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'appContent',
 
   computed: {
+    ...mapState('main', [
+      'mainTabs'
+    ]),
+
     tabs () {
-      return this.$store.state.main.mainTabs
+      return this.mainTabs
     }
   },
 
   methods: {
+    ...mapActions('main', [
+      'closeMainTab',
+      'setActiveTab'
+    ]),
+
+    // Delete tab
     closeTab (index) {
-      this.$store.dispatch('main/closeMainTab', index)
+      this.closeMainTab(index)
     },
 
+    // Move to another tab
     changeTab (index) {
-      this.$store.commit('main/setActiveTab', index)
+      this.setActiveTab(index)
     }
   }
 }

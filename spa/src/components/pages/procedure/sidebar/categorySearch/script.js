@@ -1,31 +1,41 @@
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'category',
 
   data: () => ({
+    // Selected category
     radios: 'bid'
   }),
 
   mounted () {
     // Populate tree with procedures
-    this.$store.dispatch('procedure/getCategoryList')
+    this.getCategoryList()
   },
 
   watch: {
+    // Watch for change in selected category
     'radios' (val, oldVal) {
-      this.$store.dispatch(
-        'procedure/searchByCategory',
-        val
-      )
+      this.searchByCategory(val)
     }
   },
 
   computed: {
+    ...mapState('procedure', [
+      'categoryList',
+      'searchResults'
+    ]),
+
     // Watch for change in state
     categories () {
-      return this.$store.state.procedure.categoryList
-    },
-    searchResults () {
-      return this.$store.state.procedure.searchResults
+      return this.categoryList
     }
+  },
+
+  methods: {
+    ...mapActions('procedure', [
+      'getCategoryList',
+      'searchByCategory'
+    ])
   }
 }
