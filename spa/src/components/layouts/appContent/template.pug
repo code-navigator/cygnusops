@@ -11,9 +11,10 @@ v-content(id="nav")
       :to="{name: tab.name}"
       :key="i"
       dark
-      @click.native="changeTab(i)"
+      @click.native="setTab(i)"
     ) {{ tab.name }}
 
+      //- Close button
       v-spacer
         div
           v-btn(v-if="tabs.length > 1"

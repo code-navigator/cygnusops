@@ -1,5 +1,14 @@
 v-app-bar(app dark)
-  v-app-bar-nav-icon(@click.native="toggleDrawer")
-  v-toolbar-title(class="headline text-uppercase")
+  //- 'Hamburger' icon
+  v-app-bar-nav-icon(
+    @click.native="toggleDrawer"
+  )
+
+  //- Toolbar title
+  v-toolbar-title(
+    class="headline text-uppercase"
+  )
     span Cygnus
-    span(class="font-weight-light") OPS
+    span(
+      class="font-weight-light"
+    ) OPS

@@ -3,5 +3,5 @@ export default {
   activeTab: 0,
 
   // Main tab array
-  mainTabs: []
+  tabs: []
 }

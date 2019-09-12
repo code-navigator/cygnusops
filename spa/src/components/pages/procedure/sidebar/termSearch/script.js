@@ -4,7 +4,8 @@ export default {
   name: 'search',
 
   data: () => ({
-    term: ''  // Search term
+    // Search term
+    term: ''
   }),
 
   watch: {

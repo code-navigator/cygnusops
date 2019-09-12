@@ -2,7 +2,7 @@
 v-navigation-drawer(
   app
   disable-resize-watcher
-  v-model = "position"
+  v-model = "drawer"
   temporary
 )
   //- List of page components comes from routes
@@ -11,7 +11,7 @@ v-navigation-drawer(
       v-for="route in routes"
       :key="route.name"
       :to="route.url"
-      @click.native="openTab(route.name, route.url)"
+      @click.native="openTab({ name: route.name, url: route.url })"
     )
       v-list-item-icon
         v-icon {{ route.icon }}

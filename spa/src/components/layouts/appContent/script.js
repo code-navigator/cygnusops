@@ -5,28 +5,14 @@ export default {
 
   computed: {
     ...mapState('main', [
-      'mainTabs'
-    ]),
-
-    tabs () {
-      return this.mainTabs
-    }
+      'tabs'
+    ])
   },
 
   methods: {
     ...mapActions('main', [
-      'closeMainTab',
-      'setActiveTab'
-    ]),
-
-    // Delete tab
-    closeTab (index) {
-      this.closeMainTab(index)
-    },
-
-    // Move to another tab
-    changeTab (index) {
-      this.setActiveTab(index)
-    }
+      'closeTab',
+      'setTab'
+    ])
   }
 }

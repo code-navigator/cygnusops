@@ -3,16 +3,16 @@ import Tab from '@Models/tab'
 
 export default {
   // Add main tab
-  openMainTab ({ state, commit }, data) {
+  openTab ({ state, commit }, data) {
     // Add a new tab
     commit(
-      'openMainTab',
+      'openTab',
       new Tab(data)
     )
     // Update active tab
     commit(
-      'setActiveTab',
-      state.mainTabs.length - 1
+      'setTab',
+      state.tabs.length - 1
     )
   },
 
@@ -25,16 +25,16 @@ export default {
   },
 
   // Remove main tab
-  closeMainTab ({ commit, state }, index) {
+  closeTab ({ commit, state }, index) {
     // Remove tab from stack
-    commit('closeMainTab', index)
+    commit('closeTab', index)
     // Display contents of previous tab
     index = index >= 1 ? index - 1 : 0
-    router.push(state.mainTabs[index].url)
+    router.push(state.tabs[index].url)
     // Update active tab
     commit(
-      'setActiveTab',
-      state.mainTabs[index]
+      'setTab',
+      state.tabs[index]
     )
   }
 }

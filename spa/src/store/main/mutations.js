@@ -1,16 +1,16 @@
 export default {
   // Set active tab
-  setActiveTab (state, index) {
-    state.activeTab = state.mainTabs[index]
+  setTab (state, index) {
+    state.activeTab = state.tabs[index]
   },
 
   // Add tab to main array
-  openMainTab (state, data) {
-    state.mainTabs.push(data)
+  openTab (state, data) {
+    state.tabs.push(data)
   },
 
   // Remove tab from main array
-  closeMainTab (state, data) {
-    state.mainTabs.splice(data, 1)
+  closeTab (state, data) {
+    state.tabs.splice(data, 1)
   }
 }
