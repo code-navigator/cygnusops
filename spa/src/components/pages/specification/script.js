@@ -1,9 +1,9 @@
-import splitPage from '@Layouts/splitPage/index.vue'
+import splitView from '@Layouts/splitView/index.vue'
 
 export default {
   name: 'specification',
 
   components: {
-    splitPage
+    splitView
   }
 }

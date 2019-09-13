@@ -1,6 +1,6 @@
 import contents from './content'
 import sidebar from './sidebar'
-import splitPage from '@Layouts/splitPage/index.vue'
+import splitView from '@Layouts/splitView/index.vue'
 
 export default {
   name: 'procedure',
@@ -8,6 +8,6 @@ export default {
   components: {
     contents,
     sidebar,
-    splitPage
+    splitView
   }
 }
