@@ -1,32 +1,11 @@
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import expandedSection from './expandedSection/index.vue'
 
 export default {
-  name: 'document',
+  name: 'content',
 
   components: {
     expandedSection
-  },
-
-  mounted () {
-    this.getData()
-  },
-
-  watch: {
-    '$route' (to, from) {
-      this.getData()
-    }
-  },
-
-  methods: {
-    ...mapActions('procedure', [
-      'getProcedure'
-    ]),
-    // Retrieve data for current procedure
-    getData () {
-      // Retrieve procedure
-      this.getProcedure()
-    }
   },
 
   computed: {

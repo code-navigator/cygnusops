@@ -1,34 +1,27 @@
 import ProcedureClass from '@Models/procedures'
 import SearchResultsClass from '@Models/searchResults'
 import api from '@Api/api'
-import router from '@Router/router'
+
+// Constant for default procedure
+const DEFAULT_SLUG = 'procedure-101'
 
 export default {
   // Retrieve data for current procedure
-  async getProcedure ({ state, commit }) {
-    var slug = router.currentRoute.params.slug
-
-    // If there is no slug ...
-    if (!slug || slug === 'undefined') {
-      // But there is stored procedure, navigate to that procedure
-      if (typeof state.procedure.slug !== 'undefined') {
-        router.push('/procedures/' + state.procedure.slug)
-        slug = state.procedure.slug
-        // Otherwise, go to a default page
-      } else {
-        router.push('/procedures/' + 'procedure-101')
-        slug = 'procedure-101'
-      }
-    }
-
+  async getContents ({ state, commit }, slug = DEFAULT_SLUG) {
     // Set flag to prevent page from displaying until data is loaded
     commit(
       'setIsLoading',
       true
     )
-
     // Retrieve procedure
     const data = await api.get('wp-json/wp/v2/procedures?slug=' + slug)
+
+    await commit(
+      'main/setContents',
+      new ProcedureClass(data[0]),
+      { root: true }
+
+    )
     // Save data to state
     await commit(
       'setProcedure',

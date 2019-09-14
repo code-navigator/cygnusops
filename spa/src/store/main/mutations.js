@@ -12,5 +12,9 @@ export default {
   // Remove tab from main array
   closeTab (state, data) {
     state.tabs.splice(data, 1)
+  },
+
+  setContents (state, data) {
+    state.activeTab.contents = data
   }
 }

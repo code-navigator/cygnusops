@@ -17,10 +17,10 @@ export default {
   },
 
   // Change tabs; handler for when user clicks tab
-  changeMainTab ({ state, commit, rootState }, index) {
-    commit(
+  setContents ({ commit, dispatch }, contents) {
+    dispatch(
       'procedure/setProcedure',
-      state.activeTab.contents
+      contents
     )
   },
 

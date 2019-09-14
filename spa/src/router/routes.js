@@ -26,10 +26,16 @@ const routes = [
     name: 'procedures',
     component: Procedure,
     icon: 'mdi-folder',
+    meta: {
+      store: 'procedure'
+    },
     children: [
       {
         path: '/procedures/:slug',
-        component: Procedure
+        component: Procedure,
+        meta: {
+          store: 'procedure'
+        }
       }
     ]
   },

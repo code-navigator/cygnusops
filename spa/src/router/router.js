@@ -12,14 +12,24 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const found = store.state.main.tabs.find((tab) => {
+  // Search for existing tab
+  const found = store.state.main.tabs.find(tab => {
     return to.path === tab.url
   })
 
+  // Open new tab if it does not exist and the slug is empty
   if (!found && Object.keys(to.params).length === 0) {
     store.dispatch(
       'main/openTab',
       { name: to.name, url: to.path }
+    )
+  }
+
+  // Retrieve contents from store
+  if (Object.keys(to.meta).length && to.meta.hasOwnProperty('store')) {
+    store.dispatch(
+      to.meta.store + '/getContents',
+      to.params.slug
     )
   }
 
