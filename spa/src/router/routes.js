@@ -21,11 +21,17 @@ const routes = [
   },
 
   {
-    path: '/procedures/:slug?',
+    path: '/procedures',
     url: '/procedures',
     name: 'procedures',
     component: Procedure,
-    icon: 'mdi-folder'
+    icon: 'mdi-folder',
+    children: [
+      {
+        path: '/procedures/:slug',
+        component: Procedure
+      }
+    ]
   },
 
   {
