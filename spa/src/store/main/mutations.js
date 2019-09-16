@@ -16,5 +16,12 @@ export default {
 
   setContents (state, data) {
     state.activeTab.contents = data
+    state.activeTab.name = data.slug
+    state.activeTab.url = data.url
+  },
+
+  // Flag to indicate when system is busy
+  setIsLoading (state, data) {
+    state.isLoading = data
   }
 }

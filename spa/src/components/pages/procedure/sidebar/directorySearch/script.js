@@ -26,8 +26,7 @@ export default {
 
   methods: {
     ...mapActions('procedure', [
-      'getProcedureList',
-      'getProcedure'
+      'getProcedureList'
     ]),
 
     // Fetch procedure for selected node
@@ -35,7 +34,6 @@ export default {
       if (node[0] != null) {
         // Navigate to corresponding procedure
         this.$router.push('/procedures/' + node[0])
-        this.getProcedure(node[0])
       }
     }
   }

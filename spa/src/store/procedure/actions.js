@@ -7,31 +7,37 @@ const DEFAULT_SLUG = 'procedure-101'
 
 export default {
   // Retrieve data for current procedure
-  async getContents ({ state, commit }, slug = DEFAULT_SLUG) {
+  async getContents ({ state, commit, dispatch }, slug = DEFAULT_SLUG) {
     // Set flag to prevent page from displaying until data is loaded
-    commit(
-      'setIsLoading',
-      true
+    dispatch(
+      'main/setIsLoading',
+      true,
+      { root: true }
     )
     // Retrieve procedure
     const data = await api.get('wp-json/wp/v2/procedures?slug=' + slug)
 
+    // Set path
+    data[0].url = '/procedures/' + slug
+
+    // Load contents to main tab
     await commit(
       'main/setContents',
       new ProcedureClass(data[0]),
       { root: true }
+    )
 
-    )
-    // Save data to state
-    await commit(
-      'setProcedure',
-      new ProcedureClass(data[0])
-    )
+    // // Save data to state
+    // await commit(
+    //   'setProcedure',
+    //   new ProcedureClass(data[0])
+    // )
 
     // Clear flag to display loaded procedure
     await commit(
-      'setIsLoading',
-      false
+      'main/setIsLoading',
+      false,
+      { root: true }
     )
   },
 

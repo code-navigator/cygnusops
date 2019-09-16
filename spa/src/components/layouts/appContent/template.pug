@@ -8,7 +8,7 @@ v-content(id="nav")
     //- Tab act as router links
     v-tab(
       v-for="(tab, i) in tabs"
-      :to="{name: tab.name}"
+      :to="{path: tab.url}"
       :key="i"
       dark
       @click.native="setTab(i)"

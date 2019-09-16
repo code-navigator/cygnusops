@@ -17,10 +17,10 @@ export default {
   },
 
   // Change tabs; handler for when user clicks tab
-  setContents ({ commit, dispatch }, contents) {
-    dispatch(
-      'procedure/setProcedure',
-      contents
+  setContents ({ commit }, data) {
+    commit(
+      'setContents',
+      data
     )
   },
 
@@ -36,5 +36,20 @@ export default {
       'setTab',
       state.tabs[index]
     )
+  },
+
+  setIsLoading ({ commit }, data) {
+    commit(
+      'setIsLoading',
+      data
+    )
+  },
+
+  setTab ({ commit }, data) {
+    commit(
+      'setTab',
+      data
+    )
   }
+
 }

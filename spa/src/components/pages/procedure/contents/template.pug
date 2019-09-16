@@ -3,6 +3,7 @@ v-flex(class="align-center")
   v-card.mx-10(
     class="ops-sheet"
     elevation="6"
+    v-if="!isLoading"
   )
     //- Header
     p.display-1.pt-5 {{ procedure.title }}

@@ -12,6 +12,14 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  // Open new tab if there are no tabs open
+  if (store.state.main.tabs.length === 0) {
+    store.dispatch(
+      'main/openTab',
+      { name: to.params.slug || to.name, url: to.path }
+    )
+  }
+
   // Search for existing tab
   const found = store.state.main.tabs.find(tab => {
     return to.path === tab.url

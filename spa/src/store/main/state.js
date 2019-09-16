@@ -1,7 +1,10 @@
 export default {
   // Current tab index
-  activeTab: 0,
+  activeTab: {},
 
   // Main tab array
-  tabs: []
+  tabs: [],
+
+  // Indicates if content is loaded
+  isLoading: false
 }

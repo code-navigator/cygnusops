@@ -15,6 +15,7 @@ export default class Procedure {
     this.content = data.content.rendered
     this.excerpt = data.excerpt.rendered
     this.slug = data.slug
+    this.url = data.url
   }
 
   convertDate (d) {

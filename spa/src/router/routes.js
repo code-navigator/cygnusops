@@ -41,7 +41,7 @@ const routes = [
   },
 
   {
-    path: '/specifications/:slug?',
+    path: '/specifications',
     url: '/specifications',
     name: 'specifications',
     component: Specification,

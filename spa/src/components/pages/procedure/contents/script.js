@@ -2,17 +2,21 @@ import { mapState } from 'vuex'
 import expandedSection from './expandedSection/index.vue'
 
 export default {
-  name: 'content',
+  name: 'contents',
 
   components: {
     expandedSection
   },
 
   computed: {
-    ...mapState('procedure', [
-      'isLoading',
-      'procedure'
+    ...mapState('main', [
+      'activeTab',
+      'isLoading'
     ]),
+
+    procedure () {
+      return this.activeTab.contents
+    },
 
     // Data to pass as a prop
     sections () {

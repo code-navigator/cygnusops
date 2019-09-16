@@ -9,10 +9,10 @@ export default {
     state.procedureList = data
   },
 
-  // Flag to indicate when system is busy
-  setIsLoading (state, data) {
-    state.isLoading = data
-  },
+  // // Flag to indicate when system is busy
+  // setIsLoading (state, data) {
+  //   state.isLoading = data
+  // },
 
   // List of categories
   setCategoryList (state, data) {
