@@ -1,4 +1,4 @@
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import expandedSection from './expandedSection/index.vue'
 
 export default {
@@ -6,6 +6,12 @@ export default {
 
   components: {
     expandedSection
+  },
+
+  methods: {
+    ...mapActions('procedure', [
+      'setExpanded'
+    ])
   },
 
   computed: {
@@ -25,24 +31,27 @@ export default {
         return []
       } else {
         // Section markups
-        return [
-          {
-            title: '1.0 Purpose & Scope',
-            content: this.procedure.getScope()
-          },
-          {
-            title: '2.0 Restrictions',
-            content: this.procedure.getRestrictions()
-          },
-          {
-            title: '3.0 References',
-            content: this.procedure.getReferences()
-          },
-          {
-            title: '4.0 Procedure',
-            content: this.procedure.getContent()
-          }
-        ]
+        return {
+          expanded: this.procedure.expanded,
+          sections: [
+            {
+              title: '1.0 Purpose & Scope',
+              content: this.procedure.getScope()
+            },
+            {
+              title: '2.0 Restrictions',
+              content: this.procedure.getRestrictions()
+            },
+            {
+              title: '3.0 References',
+              content: this.procedure.getReferences()
+            },
+            {
+              title: '4.0 Procedure',
+              content: this.procedure.getContent()
+            }
+          ]
+        }
       }
     }
   }

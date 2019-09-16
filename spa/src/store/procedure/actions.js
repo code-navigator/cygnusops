@@ -83,5 +83,16 @@ export default {
         ''
       )
     }
+  },
+
+  setExpanded ({ commit, rootState }, value) {
+    const procedure = rootState.main.activeTab.contents
+    procedure.expanded = value
+
+    commit(
+      'main/setContents',
+      procedure,
+      { root: true }
+    )
   }
 }

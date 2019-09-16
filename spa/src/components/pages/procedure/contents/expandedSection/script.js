@@ -7,6 +7,17 @@ export default {
     templateCompiler
   },
 
+  computed: {
+    expanded: {
+      get () {
+        return this.sections.expanded
+      },
+      set (newValue) {
+        this.$emit('click', newValue)
+      }
+    }
+  },
+
   props: [
     'sections'
   ]

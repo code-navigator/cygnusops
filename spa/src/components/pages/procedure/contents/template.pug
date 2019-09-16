@@ -14,5 +14,8 @@ v-flex(class="align-center")
     v-divider
 
     //- Sections
-    expandedSection(:sections="sections")
+    expandedSection(
+      :sections="sections"
+      @click='setExpanded'
+    )
 

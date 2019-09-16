@@ -1,10 +1,11 @@
 v-expansion-panels(
   multiple
   accordion
+  v-model='expanded'
 )
   //- Loop through all sections, creating an expansion panel for each one
   v-expansion-panel(
-    v-for="(section, i) in sections"
+    v-for="(section, i) in sections.sections"
     v-show="section.content"
     :key="i"
   )
