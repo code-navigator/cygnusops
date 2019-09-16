@@ -9,9 +9,8 @@ v-expansion-panels(
     :key="i"
   )
     //- Title is always visible
-    v-expansion-panel-header.title(
-      v-html = "section.title"
-    )
+    v-expansion-panel-header.title {{section.title}}
+    
     //- Content is collapsible
     v-expansion-panel-content
       templateCompiler(:content="section.content")
