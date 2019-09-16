@@ -37,7 +37,7 @@ export default class Procedure {
   // Original tag: <a href="/procedures/<section type>"></a>
   // New tag: <router-link to="/procedures/<section type"></router-link>
   replaceLinks (text) {
-    text = text.replace(/(<a href)([^.]*?)(a>)/g, '<router-link to$2router-link>')
+    text = text.replace(/(<a href)([^.]*?)(>.*)(a>)/g, '<router-link to$2$3router-link>')
     text = text.replace(/<a xlink:href/, '<router-link to')
     return text
   }
