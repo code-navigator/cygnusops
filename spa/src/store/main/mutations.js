@@ -23,5 +23,9 @@ export default {
   // Flag to indicate when system is busy
   setIsLoading (state, data) {
     state.isLoading = data
+  },
+
+  setSpace (state, data) {
+    state.activeTab.space = data
   }
 }

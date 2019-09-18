@@ -86,12 +86,12 @@ export default {
   },
 
   setExpanded ({ commit, rootState }, value) {
-    const procedure = rootState.main.activeTab.contents
-    procedure.expanded = value
+    const space = rootState.main.activeTab.space
+    space.expanded = value
 
     commit(
-      'main/setContents',
-      procedure,
+      'main/setSpace',
+      space,
       { root: true }
     )
   }

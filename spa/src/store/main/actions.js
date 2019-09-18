@@ -24,6 +24,13 @@ export default {
     )
   },
 
+  setSpace ({ commit }, data) {
+    commit(
+      'setSpace',
+      data
+    )
+  },
+
   // Remove main tab
   closeTab ({ commit, state }, index) {
     // Remove tab from stack

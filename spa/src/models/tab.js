@@ -6,5 +6,6 @@ export default class Tab {
     this.name = data.name
     this.url = data.url
     this.contents = null
+    this.space = []
   }
 }

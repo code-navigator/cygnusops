@@ -24,6 +24,10 @@ export default {
       return this.activeTab.contents
     },
 
+    space () {
+      return this.activeTab.space
+    },
+
     // Data to pass as a prop
     sections () {
       if (this.isLoading) {
@@ -32,7 +36,7 @@ export default {
       } else {
         // Section markups
         return {
-          expanded: this.procedure.expanded,
+          expanded: this.space.expanded,
           sections: [
             {
               title: '1.0 Purpose & Scope',
